@@ -8,7 +8,7 @@
 
 ```bash
 $ curl -L https://github.com/greenlight/installer/archive/master.tar.gz | tar xvz
-cd greenlight-* && sudo make install
+cd installer-master && sudo make install
 ```
 
 ---

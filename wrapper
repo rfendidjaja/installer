@@ -8,6 +8,10 @@ if [ -z "$GREENLIGHT_TEMP" ]; then
   export GREENLIGHT_TEMP=/tmp/greenlight
 fi
 
+if [ -z "$GREENLIGHT_DEBUG" ]; then
+  export GREENLIGHT_DEBUG=0
+fi
+
 docker run \
   --interactive --rm \
   --env GREENLIGHT_SOURCE \

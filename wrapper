@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+if [ -z "$GREENLIGHT_SOURCE" ]; then
+  export GREENLIGHT_SOURCE=$PWD
+fi
+
+if [ -z "$GREENLIGHT_TEMP" ]; then
+  export GREENLIGHT_TEMP=/tmp/greenlight
+fi
+
+docker run \
+  --interactive --rm \
+  --env GREENLIGHT_SOURCE \
+  --env GREENLIGHT_TEMP \
+  --env GREENLIGHT_DEBUG \
+  --volume "$GREENLIGHT_SOURCE":$GREENLIGHT_SOURCE \
+  --volume "$GREENLIGHT_TEMP":$GREENLIGHT_TEMP \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
+  --tty \
+  greenlight/cli
+  "$@"
